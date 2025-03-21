@@ -1,7 +1,13 @@
-using CustomsService;
+using Contracts;
+using CustomsService.Consumers;
 
 var builder = Host.CreateApplicationBuilder(args);
-builder.Services.AddHostedService<Worker>();
 
-var host = builder.Build();
-host.Run();
+// Add MassTransit configuration with consumers
+builder.Services.AddMassTransitConfiguration(cfg =>
+{
+    cfg.AddConsumer<ShipmentUpdatedConsumer>();
+});
+
+var app = builder.Build();
+app.Run();
