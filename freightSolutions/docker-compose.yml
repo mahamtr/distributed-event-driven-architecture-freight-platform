@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  customs-service:
+    build:
+      context: ./CustomsService
+    container_name: customs-service
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  inventory-service:
+    build:
+      context: ./InventoryService
+    container_name: inventory-service
+    ports:
+      - "5002:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  notification-service:
+    build:
+      context: ./NotificationService
+    container_name: notification-service
+    ports:
+      - "5003:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  orchestrator-service:
+    build:
+      context: ./OrchestratorService
+    container_name: orchestrator-service
+    ports:
+      - "5004:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  order-service:
+    build:
+      context: ./OrderService
+    container_name: order-service
+    ports:
+      - "5005:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  payment-service:
+    build:
+      context: ./PaymentService
+    container_name: payment-service
+    ports:
+      - "5006:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  shipment-service:
+    build:
+      context: ./ShipmentService
+    container_name: shipment-service
+    ports:
+      - "5007:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
