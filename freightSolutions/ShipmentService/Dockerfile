@@ -2,13 +2,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copy the project file and restore dependencies
-COPY *.csproj ./
-RUN dotnet restore
+# Copy the Contracts project
+COPY ./Contracts ./Contracts
 
-# Copy the rest of the application and build it
-COPY . ./
-RUN dotnet publish -c Release -o out
+# Copy the ShipmentService project file and restore dependencies
+COPY ./ShipmentService/ShipmentService.csproj ./ShipmentService/
+RUN dotnet restore ./ShipmentService/ShipmentService.csproj
+
+# Copy the rest of the ShipmentService application and build it
+COPY ./ShipmentService ./ShipmentService
+RUN dotnet publish ./ShipmentService -c Release -o out
 
 # Use the official .NET runtime image for the runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0

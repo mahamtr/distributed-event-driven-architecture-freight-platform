@@ -2,13 +2,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copy the project file and restore dependencies
-COPY *.csproj ./
-RUN dotnet restore
+# Copy the Contracts project
+COPY ./Contracts ./Contracts
 
-# Copy the rest of the application and build it
-COPY . ./
-RUN dotnet publish -c Release -o out
+# Copy the CustomsService project file and restore dependencies
+COPY ./CustomsService/CustomsService.csproj ./CustomsService/
+RUN dotnet restore ./CustomsService/CustomsService.csproj
+
+# Copy the rest of the CustomsService application and build it
+COPY ./CustomsService ./CustomsService
+RUN dotnet publish ./CustomsService -c Release -o out
 
 # Use the official .NET runtime image for the runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0

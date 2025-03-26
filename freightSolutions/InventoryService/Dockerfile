@@ -2,13 +2,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copy the project file and restore dependencies
-COPY *.csproj ./
-RUN dotnet restore
+# Copy the Contracts project
+COPY ./Contracts ./Contracts
 
-# Copy the rest of the application and build it
-COPY . ./
-RUN dotnet publish -c Release -o out
+# Copy the InventoryService project file and restore dependencies
+COPY ./InventoryService/InventoryService.csproj ./InventoryService/
+RUN dotnet restore ./InventoryService/InventoryService.csproj
+
+# Copy the rest of the InventoryService application and build it
+COPY ./InventoryService ./InventoryService
+RUN dotnet publish ./InventoryService -c Release -o out
 
 # Use the official .NET runtime image for the runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0

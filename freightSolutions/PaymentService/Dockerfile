@@ -2,13 +2,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copy the project file and restore dependencies
-COPY *.csproj ./
-RUN dotnet restore
+# Copy the Contracts project
+COPY ./Contracts ./Contracts
 
-# Copy the rest of the application and build it
-COPY . ./
-RUN dotnet publish -c Release -o out
+# Copy the PaymentService project file and restore dependencies
+COPY ./PaymentService/PaymentService.csproj ./PaymentService/
+RUN dotnet restore ./PaymentService/PaymentService.csproj
+
+# Copy the rest of the PaymentService application and build it
+COPY ./PaymentService ./PaymentService
+RUN dotnet publish ./PaymentService -c Release -o out
 
 # Use the official .NET runtime image for the runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0

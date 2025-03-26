@@ -2,13 +2,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copy the project file and restore dependencies
-COPY *.csproj ./
-RUN dotnet restore
+# Copy the Contracts project
+COPY ./Contracts ./Contracts
 
-# Copy the rest of the application and build it
-COPY . ./
-RUN dotnet publish -c Release -o out
+# Copy the OrchestratorService project file and restore dependencies
+COPY ./OrchestratorService/OrchestratorService.csproj ./OrchestratorService/
+RUN dotnet restore ./OrchestratorService/OrchestratorService.csproj
+
+# Copy the rest of the OrchestratorService application and build it
+COPY ./OrchestratorService ./OrchestratorService
+RUN dotnet publish ./OrchestratorService -c Release -o out
 
 # Use the official .NET runtime image for the runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
