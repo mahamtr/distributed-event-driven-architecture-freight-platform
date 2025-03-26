@@ -1,0 +1,79 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.1.1 Chrome/132.0.6834.210 Electron/34.3.3 Safari/537.36" version="26.1.1">
+  <diagram id="IqUv_hR5CrUMivOyopql" name="Page-1">
+    <mxGraphModel dx="1368" dy="909" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OrderSubmitted" value="OrderSubmitted" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CreateOrder" value="CreateOrder" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderCreated" value="OrderCreated" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="480" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ao3AskcMcDQXDQcNFvgN-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="InventoryReserve" target="CancelOrder">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="InventoryReserve" value="InventoryReserve" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="570" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="InventoryReserved" value="InventoryReserved" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="670" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ao3AskcMcDQXDQcNFvgN-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="ProcessPayment" target="CancelOrder">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ProcessPayment" value="ProcessPayment" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="760" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PaymentProcessed" value="PaymentProcessed" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="100" y="860" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CancelOrder" value="CancelOrder" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="330" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ReleaseInventory" value="ReleaseInventory" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="560" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="RefundPayment" value="RefundPayment" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="550" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UpdateCancelOrder" value="UpdateCancelOrder" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="580" y="850" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderSubmittedToCreateOrder" parent="1" source="OrderSubmitted" target="CreateOrder" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CreateOrderToOrderCreated" parent="1" source="CreateOrder" target="OrderCreated" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OrderCreatedToInventoryReserve" parent="1" source="OrderCreated" target="InventoryReserve" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="InventoryReserveToInventoryReserved" parent="1" source="InventoryReserve" target="InventoryReserved" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="InventoryReservedToProcessPayment" parent="1" source="InventoryReserved" target="ProcessPayment" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ProcessPaymentToPaymentProcessed" parent="1" source="ProcessPayment" target="PaymentProcessed" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CancelOrderToReleaseInventory" parent="1" source="CancelOrder" target="ReleaseInventory" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CancelOrderToRefundPayment" parent="1" source="CancelOrder" target="RefundPayment" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CancelOrderToUpdateCancelOrder" parent="1" source="CancelOrder" target="UpdateCancelOrder" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ao3AskcMcDQXDQcNFvgN-4" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Order Processing Saga&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="240" y="150" width="330" height="170" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
